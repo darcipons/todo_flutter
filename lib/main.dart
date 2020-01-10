@@ -11,8 +11,10 @@ class ToDo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple[500],
-        title: Text('Todo App'),
+        backgroundColor: Colors.purple[600],
+        title: Text(
+          'Todo App',
+        ),
       ),
     );
   }
