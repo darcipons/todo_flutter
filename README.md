@@ -5,4 +5,4 @@ The goal is not to create a production ready application, but for you to demonst
 
 
 ## UI Layout
-![Screenshot](screenshot.png)
+![Screenshot](images/screenshot.png)
