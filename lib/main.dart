@@ -21,8 +21,23 @@ class MyApp extends StatelessWidget {
           body: TabBarView(
             children: <Widget>[Text('Todo'), Text('Completed')],
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+          ),
         ),
       ),
     );
+  }
+}
+
+class ToDo extends StatefulWidget {
+  @override
+  _ToDoState createState() => _ToDoState();
+}
+
+class _ToDoState extends State<ToDo> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
