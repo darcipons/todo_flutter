@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_taxfyle/screens/completed_screen.dart';
 
 class TodoTile extends StatefulWidget {
   @override
@@ -23,6 +24,12 @@ class _TodoTileState extends State<TodoTile> {
             decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
       leading: TodoCheckbox(isChecked, checkboxCallback),
+//      onTap: () {
+//        Navigator.push(
+//          context,
+//          MaterialPageRoute(builder: (context) => CompletedScreen()),
+//        );
+//      },
     );
   }
 }

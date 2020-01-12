@@ -28,6 +28,7 @@ class _AddTodoState extends State<AddTodo> {
               todoList.add(controller.text);
               controller.clear();
             });
+            AddTodoItem();
             print('add button working');
           },
           child: Text('Add'),
@@ -35,5 +36,25 @@ class _AddTodoState extends State<AddTodo> {
         ),
       ],
     );
+  }
+}
+
+class AddTodoItem extends StatefulWidget {
+  @override
+  _AddTodoItemState createState() => _AddTodoItemState();
+}
+
+class _AddTodoItemState extends State<AddTodoItem> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: todoList.length,
+        itemBuilder: (BuildContext ctxt, int index){
+          return Column(
+            children: <Widget>[
+              Text(todoList[index])
+            ],
+          )
+    }
   }
 }
