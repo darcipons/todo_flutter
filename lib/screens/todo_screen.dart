@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_taxfyle/widgets/todo_list.dart';
 
 class TodoScreen extends StatelessWidget {
   @override
@@ -11,30 +12,6 @@ class TodoScreen extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-}
-
-class TodoList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        TodoTile(),
-        TodoTile(),
-      ],
-    );
-  }
-}
-
-class TodoTile extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('Setup Flutter environment'),
-      leading: Checkbox(
-        value: false,
-      ),
     );
   }
 }
