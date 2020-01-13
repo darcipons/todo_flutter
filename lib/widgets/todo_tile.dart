@@ -1,51 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:todo_taxfyle/screens/completed_screen.dart';
 
-class TodoTile extends StatefulWidget {
-  @override
-  _TodoTileState createState() => _TodoTileState();
-}
+class TodoTile extends StatelessWidget {
+  final bool isChecked;
+  final String todoTitle;
+  final Function checkboxCallback;
 
-class _TodoTileState extends State<TodoTile> {
-  bool isChecked = false;
-
-  void checkboxCallback(bool checkboxState) {
-    setState(() {
-      isChecked = checkboxState;
-    });
-  }
+  TodoTile({this.isChecked, this.todoTitle, this.checkboxCallback});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        'Setup Flutter environment',
+        todoTitle,
         style: TextStyle(
             decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
-      leading: TodoCheckbox(isChecked, checkboxCallback),
+      leading: Checkbox(
+        activeColor: Colors.purple[300],
+        value: isChecked,
+        onChanged: checkboxCallback,
+      ),
+    );
 //      onTap: () {
 //        Navigator.push(
 //          context,
 //          MaterialPageRoute(builder: (context) => CompletedScreen()),
 //        );
 //      },
-    );
   }
 }
 
-class TodoCheckbox extends StatelessWidget {
-  final bool checkboxState;
-  final Function toggleCheckboxState;
-
-  TodoCheckbox(this.checkboxState, this.toggleCheckboxState);
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      activeColor: Colors.purple[300],
-      value: checkboxState,
-      onChanged: toggleCheckboxState,
-    );
-  }
-}
+//void checkboxCallback(bool checkboxState) {
+//  setState(() {
+//    isChecked = checkboxState;
+//  });
+//}
+//
