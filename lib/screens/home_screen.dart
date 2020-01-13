@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_taxfyle/screens/todo_screen.dart';
 import 'package:todo_taxfyle/screens/completed_screen.dart';
-import 'package:todo_taxfyle/screens/add_todo.dart';
+import 'package:todo_taxfyle/widgets/alert_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Tab> myTabs = <Tab>[
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.purple,
           child: Icon(Icons.add),
           onPressed: () {
-            showDialog(context: context, builder: (context) => AddTodo());
+            showDialog(context: context, builder: (context) => Dialogg());
             print('fab is working');
           },
         ),
