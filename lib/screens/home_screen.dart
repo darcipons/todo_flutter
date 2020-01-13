@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_taxfyle/screens/add_todo.dart';
 import 'package:todo_taxfyle/screens/todo_screen.dart';
 import 'package:todo_taxfyle/screens/completed_screen.dart';
 import 'package:todo_taxfyle/widgets/alert_dialog.dart';
 import 'package:todo_taxfyle/models/todo.dart';
-import 'package:todo_taxfyle/screens/completed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,9 +11,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Task> todos = [
-    Task(name: 'Set up flutter'),
-    Task(name: 'make repo'),
-    Task(name: 'check list'),
+    Task(name: 'Setup flutter environment'),
+    Task(name: 'Create git repo'),
+    Task(name: 'Create Flutter base project'),
   ];
 
   final List<Tab> myTabs = <Tab>[
@@ -27,8 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
         todos.add(todo);
       });
 
-  getList(i) => todos.where((todo) => todo.isDone == i).toList();
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -38,9 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.purple,
           title: Text('Todo App'),
           bottom: TabBar(
-            labelColor: Colors.purple[200],
+            labelColor: Colors.purple[100],
             unselectedLabelColor: Colors.white,
-            indicatorColor: Colors.purple[200],
+            indicatorColor: Colors.purple[100],
             tabs: myTabs,
           ),
         ),
@@ -51,15 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
             showDialog(
                 context: context,
                 builder: (context) => TaskDialog(addToList: addTodo));
-            print('fab is working');
           },
         ),
         body: TabBarView(
           children: <Widget>[
-            TodoScreen(getList(false)),
-            CompletedScreen(
-              getList(true),
-            ),
+            TodoScreen(todos),
+            CompletedScreen(todos),
           ],
         ),
       ),

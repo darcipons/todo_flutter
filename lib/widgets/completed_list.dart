@@ -17,17 +17,21 @@ class _CompletedListState extends State<CompletedList> {
     return ListView.builder(
       itemCount: widget.todos.length,
       itemBuilder: (context, index) {
-        return TodoTile(
-          todoTitle: widget.todos[index].name,
-          isChecked: widget.todos[index].isDone,
-          checkboxCallback: (bool checkboxState) {
-            setState(
-              () {
-                widget.todos[index].toggleDone();
-              },
-            );
-          },
-        );
+        if (widget.todos[index].isDone != false) {
+          return TodoTile(
+            todoTitle: widget.todos[index].name,
+            isChecked: widget.todos[index].isDone,
+            checkboxCallback: (bool checkboxState) {
+              setState(
+                () {
+                  widget.todos[index].toggleDone();
+                },
+              );
+            },
+          );
+        } else {
+          return null;
+        }
       },
     );
   }

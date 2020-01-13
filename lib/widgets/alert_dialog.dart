@@ -16,11 +16,10 @@ class _TaskDialogState extends State<TaskDialog> {
   Widget build(BuildContext context) {
     String newTodoTitle;
     return AlertDialog(
-      title: Text('Enter todo:'),
       content: TextField(
         controller: controller,
         autofocus: true,
-        decoration: InputDecoration.collapsed(hintText: 'Change font size'),
+        decoration: InputDecoration.collapsed(hintText: 'Enter todo'),
         onChanged: (newText) {
           newTodoTitle = newText;
         },
@@ -31,6 +30,7 @@ class _TaskDialogState extends State<TaskDialog> {
             setState(() {
               controller.clear();
               widget.addToList(Task(name: newTodoTitle));
+              Navigator.of(context).pop();
             });
             print(newTodoTitle);
           },
