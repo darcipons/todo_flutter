@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:todo_taxfyle/models/todo.dart';
 
-class Dialogg extends StatefulWidget {
+class TaskDialog extends StatefulWidget {
+  final Function addToList;
+  TaskDialog({Key key, @required this.addToList}) : super(key: key);
+
   @override
-  _DialoggState createState() => _DialoggState();
+  _TaskDialogState createState() => _TaskDialogState();
 }
 
-class _DialoggState extends State<Dialogg> {
+class _TaskDialogState extends State<TaskDialog> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -26,6 +30,7 @@ class _DialoggState extends State<Dialogg> {
           onPressed: () {
             setState(() {
               controller.clear();
+              widget.addToList(Task(name: newTodoTitle));
             });
             print(newTodoTitle);
           },
