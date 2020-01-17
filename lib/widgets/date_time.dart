@@ -9,10 +9,6 @@ class DueDate extends StatefulWidget {
 class _DueDateState extends State<DueDate> {
   DateTime selectedDate = DateTime.now();
 
-//  String _formatDateTime(DateTime dateTime) {
-//    return DateFormat('yMd').format(dateTime);
-//  }
-
   Future<Null> selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -48,6 +44,3 @@ class _DueDateState extends State<DueDate> {
     );
   }
 }
-
-//Text("${selectedDate.toLocal()}".split(' ')[0]),
-//Text(format),

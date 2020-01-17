@@ -20,6 +20,7 @@ class _TodoListState extends State<TodoList> {
         if (widget.todos[index].isDone == false) {
           return TodoTile(
             todoTitle: widget.todos[index].name,
+            todoDescription: widget.todos[index].description,
             isChecked: widget.todos[index].isDone,
             checkboxCallback: (bool checkboxState) {
               setState(
