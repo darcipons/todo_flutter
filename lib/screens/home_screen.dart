@@ -12,16 +12,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Task> todos = [
     Task(
-      name: 'Setup flutter environment',
-      description: 'set up flutter to create a flutter app',
+      name: 'Configure Flutter',
+      description:
+          'Get Xcode, Android Studio, and VSCode working and Flutter Doctor to give no errors',
     ),
     Task(
       name: 'Create git repo',
-      description: 'create repo on github',
+      description: 'Create repo on github',
     ),
     Task(
       name: 'Create Flutter base project',
-      description: 'create flutter app',
+      description: 'Create todo app using Flutter base project',
     ),
   ];
 
