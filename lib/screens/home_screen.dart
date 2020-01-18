@@ -56,7 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => AddTodo(),
+                builder: (context) =>
+                    AddTodo((newTodoTitle, newTodoDescription) {
+                  setState(() {
+                    todos.add(
+                      Task(name: newTodoTitle, description: newTodoDescription),
+                    );
+                  });
+                }),
               ),
             );
             print('fab working');

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:todo_taxfyle/widgets/date_time.dart';
+import 'package:todo_taxfyle/models/todo.dart';
 
-class AddTodo extends StatefulWidget {
-  @override
-  _AddTodoState createState() => _AddTodoState();
-}
+class AddTodo extends StatelessWidget {
+  final Function addTodoCallback;
 
-class _AddTodoState extends State<AddTodo> {
+  AddTodo(this.addTodoCallback);
+
   @override
   Widget build(BuildContext context) {
+    String newTodoTitle;
+    String newTodoDescription;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('New Item'),
@@ -19,6 +22,7 @@ class _AddTodoState extends State<AddTodo> {
         child: Column(
           children: <Widget>[
             TextField(
+              textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
                 labelText: 'Task Name',
                 labelStyle: TextStyle(color: Colors.purple),
@@ -28,8 +32,13 @@ class _AddTodoState extends State<AddTodo> {
                   ),
                 ),
               ),
+              onChanged: (newTextTitle) {
+                newTodoTitle = newTextTitle;
+              },
             ),
             TextField(
+              maxLines: 2,
+              textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
                 labelText: 'Description',
                 labelStyle: TextStyle(color: Colors.purple),
@@ -39,6 +48,9 @@ class _AddTodoState extends State<AddTodo> {
                   ),
                 ),
               ),
+              onChanged: (newTextDescription) {
+                newTodoDescription = newTextDescription;
+              },
             ),
             Row(
               children: <Widget>[
@@ -52,7 +64,8 @@ class _AddTodoState extends State<AddTodo> {
               ),
               color: Colors.purple,
               onPressed: () {
-                print('add item button');
+                addTodoCallback(newTodoTitle, newTodoDescription);
+                Navigator.of(context).pop();
               },
             )
           ],

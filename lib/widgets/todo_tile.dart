@@ -4,14 +4,14 @@ class TodoTile extends StatelessWidget {
   final bool isChecked;
   final String todoTitle;
   final String todoDescription;
-  final String todoDate;
+//  final String todoDate;
   final Function checkboxCallback;
 
   TodoTile({
     this.isChecked,
     this.todoTitle,
     this.todoDescription,
-    this.todoDate,
+//    this.todoDate,
     this.checkboxCallback,
   });
 
