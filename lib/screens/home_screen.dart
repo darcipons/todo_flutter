@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_taxfyle/screens/todo_screen.dart';
 import 'package:todo_taxfyle/screens/completed_screen.dart';
-import 'package:todo_taxfyle/widgets/alert_dialog.dart';
 import 'package:todo_taxfyle/models/todo.dart';
+import 'package:todo_taxfyle/screens/add_todo.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,9 +11,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Task> todos = [
-    Task(name: 'Setup flutter environment'),
-    Task(name: 'Create git repo'),
-    Task(name: 'Create Flutter base project'),
+    Task(
+      name: 'Setup flutter environment',
+      description: 'set up flutter to create a flutter app',
+    ),
+    Task(
+      name: 'Create git repo',
+      description: 'create repo on github',
+    ),
+    Task(
+      name: 'Create Flutter base project',
+      description: 'create flutter app',
+    ),
   ];
 
   final List<Tab> myTabs = <Tab>[
@@ -44,9 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.purple,
           child: Icon(Icons.add),
           onPressed: () {
-            showDialog(
-                context: context,
-                builder: (context) => TaskDialog(addToList: addTodo));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    AddTodo((newTodoTitle, newTodoDescription) {
+                  setState(() {
+                    todos.add(
+                      Task(name: newTodoTitle, description: newTodoDescription),
+                    );
+                  });
+                }),
+              ),
+            );
+            print('fab working');
           },
         ),
         body: TabBarView(
