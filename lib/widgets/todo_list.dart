@@ -32,6 +32,7 @@ class _TodoListState extends State<TodoList> {
               widget.todos.removeAt(index);
             });
           },
+          direction: DismissDirection.endToStart,
           child: TodoTile(
             todoTitle: widget.todos[index].name,
             todoDescription: widget.todos[index].description,
