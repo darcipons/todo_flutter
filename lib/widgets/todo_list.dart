@@ -17,35 +17,39 @@ class _TodoListState extends State<TodoList> {
     return ListView.builder(
       itemCount: widget.todos.length,
       itemBuilder: (context, index) {
-        return Dismissible(
-          key: UniqueKey(),
-          background: Container(
-            alignment: AlignmentDirectional.centerEnd,
-            color: Colors.red,
-            child: Icon(
-              Icons.delete,
-              color: Colors.white,
+        if (widget.todos[index].isDone == false) {
+          return Dismissible(
+            key: UniqueKey(),
+            background: Container(
+              alignment: AlignmentDirectional.centerEnd,
+              color: Colors.red,
+              child: Icon(
+                Icons.delete,
+                color: Colors.white,
+              ),
             ),
-          ),
-          onDismissed: (direction) {
-            setState(() {
-              widget.todos.removeAt(index);
-            });
-          },
-          direction: DismissDirection.endToStart,
-          child: TodoTile(
-            todoTitle: widget.todos[index].name,
-            todoDescription: widget.todos[index].description,
-            isChecked: widget.todos[index].isDone,
-            checkboxCallback: (bool checkboxState) {
-              setState(
-                () {
-                  widget.todos[index].toggleDone();
-                },
-              );
+            onDismissed: (direction) {
+              setState(() {
+                widget.todos.removeAt(index);
+              });
             },
-          ),
-        );
+            direction: DismissDirection.endToStart,
+            child: TodoTile(
+              todoTitle: widget.todos[index].name,
+              todoDescription: widget.todos[index].description,
+              isChecked: widget.todos[index].isDone,
+              checkboxCallback: (bool checkboxState) {
+                setState(
+                  () {
+                    widget.todos[index].toggleDone();
+                  },
+                );
+              },
+            ),
+          );
+        } else {
+          return null;
+        }
       },
     );
   }

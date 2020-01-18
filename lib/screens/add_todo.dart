@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_taxfyle/widgets/date_time.dart';
-import 'package:todo_taxfyle/models/todo.dart';
 
 class AddTodo extends StatelessWidget {
   final Function addTodoCallback;
