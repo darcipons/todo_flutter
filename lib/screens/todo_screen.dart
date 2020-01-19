@@ -20,7 +20,7 @@ class _TodoScreenState extends State<TodoScreen> {
           child: Container(
             child: TodoList(widget.todos),
           ),
-        )
+        ),
       ],
     );
   }
