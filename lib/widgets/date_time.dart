@@ -33,7 +33,7 @@ class _DueDateState extends State<DueDate> {
       child: Row(
         children: <Widget>[
           Icon(Icons.calendar_today),
-          Text('   Due Date:  $format'),
+          Text(' Due Date: $format'),
         ],
       ),
       color: Colors.grey[300],
