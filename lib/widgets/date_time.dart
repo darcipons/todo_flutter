@@ -38,8 +38,10 @@ class _DueDateState extends State<DueDate> {
       ),
       color: Colors.grey[300],
       onPressed: () {
-        selectDate(context);
-        print('due date button is working');
+        setState(() {
+          selectDate(context);
+          print('due date button is working');
+        });
       },
     );
   }
